@@ -1,5 +1,6 @@
 import classes from './ProfileInfo.module.css';
 
+
 const ProfileInfo = (props) => {
   return (
     <div>
@@ -9,4 +10,4 @@ const ProfileInfo = (props) => {
   )
 };
 
-export default ProfileInfo;
+export  default ProfileInfo;
