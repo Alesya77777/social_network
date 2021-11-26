@@ -1,3 +1,18 @@
-.messages {
+.message {
   padding: 20px;
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+
+}
+
+.message:nth-child(2n+1) {
+  background-color: tomato;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.message:nth-child(2n) {
+  grid-column-start: 2;
+  grid-column-end: 4;
 }
