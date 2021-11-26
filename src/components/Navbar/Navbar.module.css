@@ -1,6 +1,10 @@
+.wrapper {
+  background-color: limegreen;
+}
+
 .nav {
   grid-area: nav;
-  background-color: limegreen;
+
   padding: 20px;
 }
 

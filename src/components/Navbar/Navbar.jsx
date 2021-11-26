@@ -1,27 +1,29 @@
 import { NavLink } from 'react-router-dom';
+import Friends from './Friends/Friends';
 import classes from './Navbar.module.css';
 
 
 
+const setActive = ({ isActive }) => isActive ? classes.active : classes.item;
+
 const Navbar = (props) => {
+  const linksElements = props.state.links.map((l, index) => {
+    return (<div className={`${classes.item} ${classes.active}`}>
+      <NavLink to={l.path} className={setActive} key={index} id={l.id}>
+        {l.name}
+      </NavLink>
+    </div>)
+  });
+
   return (
-    <nav className={classes.nav}>
-      <div className={classes.item}>
-        <NavLink to="/profile" className = { navData => navData.isActive ? classes.active : classes.item }> Profile</NavLink>
-      </div>
-      <div className={`${classes.item} ${classes.active}`}>
-        <NavLink to="/dialogs" className = { navData => navData.isActive ? classes.active : classes.item }>Messages</NavLink>
-      </div>
-      <div className={classes.item}>
-        <NavLink to="/news" className = { navData => navData.isActive ? classes.active : classes.item } >News</NavLink>
-      </div>
-      <div className={classes.item}>
-        <NavLink to="/music" className = { navData => navData.isActive ? classes.active : classes.item } >Music</NavLink>
-      </div>
-      <div className={classes.item}>
-        <NavLink to="/settings" className = { navData => navData.isActive ? classes.active : classes.item } >Settings</NavLink>
-      </div>
-    </nav>
+    <div className={classes.wrapper}>
+      <nav className={classes.nav}>
+        {linksElements}
+      </nav>
+      <Friends friends={props.state} />
+    </div>
+
+
   )
 };
 

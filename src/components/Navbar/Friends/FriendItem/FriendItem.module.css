@@ -1,9 +1,7 @@
-.item {
-  color: rgba(29, 29, 31, 0.897);
-}
 
 .item img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
 }
+

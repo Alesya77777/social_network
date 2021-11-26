@@ -1,0 +1,16 @@
+.wrapper {
+  grid-area: friends;
+  padding: 20px;
+}
+
+
+
+.title {
+  color: white;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;;
+}
+
