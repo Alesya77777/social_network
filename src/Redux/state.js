@@ -36,8 +36,18 @@ const state = {
       {id: 3, name: "Sveta", photo: "https://www.afisha.uz/ui/materials/2016/03/0881639_b.jpg"},
     ]
   }
-
-
 };
+
+export const addPost = (postMessage) => {
+  const newPost = {
+    id: 4,
+    message: postMessage,
+    likesCount: 0,
+
+  }
+  state.profilePage.posts.push(newPost);
+}
+
+
 
 export default state;
