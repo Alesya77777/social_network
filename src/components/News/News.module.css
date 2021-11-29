@@ -1,0 +1,12 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.newNews {
+  padding: 10px;
+}
+
+.newNews button {
+  margin-left: 20px;
+}

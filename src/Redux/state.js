@@ -7,6 +7,7 @@ const state = {
       { id: 2, message: "It's my first post", likesCount: 30 },
       { id: 3, message: "It's my second post", likesCount: 35 },
     ],
+    newPostText: "it",
   },
   dialogsPage: {
     dialogs: [
@@ -22,7 +23,9 @@ const state = {
       { id: 2, message: "Hi!" },
       { id: 3, message: "How are you?" },
       { id: 4, message: "I'm fine, thanks. And you?" },
-    ]
+    ],
+    newMessageText: "Новое сообщение",
+
   },
   sitebar: {
     links: [
@@ -33,24 +36,78 @@ const state = {
       { id: 5, name: "Settings", path: "/settings" },
     ],
     friends: [
-      {id: 1, name: "Andrew", photo: "https://teleprogramma.pro/wp-content/uploads/2016/03/596a3d04481816330f07e4f97510c28f-1-1024x754.jpg"},
-      {id: 2, name: "Sasha", photo: "https://cdnimg.rg.ru/i/gallery/93a5d2d1/10_86ad2d85.jpg"},
-      {id: 3, name: "Sveta", photo: "https://www.afisha.uz/ui/materials/2016/03/0881639_b.jpg"},
+      { id: 1, name: "Andrew", photo: "https://teleprogramma.pro/wp-content/uploads/2016/03/596a3d04481816330f07e4f97510c28f-1-1024x754.jpg" },
+      { id: 2, name: "Sasha", photo: "https://cdnimg.rg.ru/i/gallery/93a5d2d1/10_86ad2d85.jpg" },
+      { id: 3, name: "Sveta", photo: "https://www.afisha.uz/ui/materials/2016/03/0881639_b.jpg" },
     ]
-  }
+  },
+  newsPage: {
+    news: [
+      { id: 1, photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg", message: "Правильно написать новость – настоящее искусство. Но научиться этому не сложно.      Прежде чем начнём раскрывать алгоритм написания, вспомним, что такое новость." },
+      { id: 2, photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg", message: "Правильно написать новость – настоящее искусство. Но научиться этому не сложно.      Прежде чем начнём раскрывать алгоритм написания, вспомним, что такое новость." },
+      { id: 3, photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg", message: "Правильно написать новость – настоящее искусство. Но научиться этому не сложно.      Прежде чем начнём раскрывать алгоритм написания, вспомним, что такое новость." },
+      { id: 4, photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg", message: "Правильно написать новость – настоящее искусство. Но научиться этому не сложно.      Прежде чем начнём раскрывать алгоритм написания, вспомним, что такое новость." },
+    ],
+    newNewsText: "Новость",
+  },
+
 };
 
-export const addPost = (postMessage) => {
+window.state = state;
+
+export const addPost = () => {
   const newPost = {
     id: 4,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likesCount: 0,
+  };
 
-  }
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
   rerenderEntireTree(state);
-}
+};
 
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+};
+
+export const addMessage = () => {
+
+  const newMessage = {
+    id: 5,
+    message: state.dialogsPage.newMessageText,
+  };
+
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = '';
+  rerenderEntireTree(state);
+};
+
+export const updateNewMessageText = (newText) => {
+
+  state.dialogsPage.newMessageText = newText;
+  rerenderEntireTree(state);
+};
+
+
+
+export const addNews = () => {
+  const newNews = {
+    id: 5,
+    photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg",
+    message: state.newsPage.newNewsText,
+  };
+  state.newsPage.news.push(newNews);
+  state.newsPage.newNewsText = '';
+  rerenderEntireTree(state);
+};
+
+export const updateNewNewsText = (newText) => {
+
+  state.newsPage.newNewsText = newText;
+  rerenderEntireTree(state);
+};
 
 
 export default state;

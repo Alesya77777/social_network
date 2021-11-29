@@ -7,34 +7,39 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-
-
-
-
-  const dialogsElements = props.state.dialogs.map((d, index) => <DialogItem name={d.name} key={index} id={d.id} src={d.photo} />);
-  const messagesElements = props.state.messages.map((m, index) => <Message message={m.message} key={index} />)
+  const dialogsElements = props.dialogsPage.dialogs.map((d, index) => <DialogItem name={d.name} key={index} id={d.id} src={d.photo} />);
+  const messagesElements = props.dialogsPage.messages.map((m, index) => <Message message={m.message} key={index} />)
 
   const newMessage = React.createRef();
   const addMessage = () => {
+    props.addMessage();
+  };
+
+  const onMessageChange = () => {
+    debugger;
     const text = newMessage.current.value;
-    alert(text);
+    props.updateNewMessageText(text);
   };
 
 
   return (
     <div className={classes.dialogs}>
+   
       <div className={classes.dialogItem}>
         {dialogsElements}
       </div>
+      
       <div className={classes.messages}>
+        
         {messagesElements}
       </div>
       <div>
-        <textarea ref={newMessage}></textarea>
+        <textarea onChange={onMessageChange} ref={newMessage} value={props.dialogsPage.newMessageText} ></textarea>
         <button onClick={addMessage}> Добавить сообщение</button>
       </div>
     </div>
   )
+ 
 };
 
 export default Dialogs;
