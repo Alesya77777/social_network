@@ -1,6 +1,8 @@
+
 let rerenderEntireTree = () => {
   console.log("h");
 };
+
 
 let state = {
   profilePage: {
@@ -111,9 +113,11 @@ export const updateNewNewsText = (newText) => {
   rerenderEntireTree(state);
 };
 
+
 export const subscribe =  (observer) => {
   rerenderEntireTree = observer;
-};
+
+
 
 
 export default state;
