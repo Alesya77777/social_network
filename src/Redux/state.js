@@ -1,10 +1,10 @@
 
 let rerenderEntireTree = () => {
-  console.log('f');
-}
+  console.log("h");
+};
 
 
-const state = {
+let state = {
   profilePage: {
     posts: [
       { id: 1, message: "Hi, how are you?", likesCount: 25 },
@@ -113,9 +113,11 @@ export const updateNewNewsText = (newText) => {
   rerenderEntireTree(state);
 };
 
-export const subscribe =(observer) => {
-  rerenderEntireTree(observer);
-};
+
+export const subscribe =  (observer) => {
+  rerenderEntireTree = observer;
+
+
 
 
 export default state;
