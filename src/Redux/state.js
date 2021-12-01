@@ -1,6 +1,8 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => {
+  console.log("h");
+};
 
-const state = {
+let state = {
   profilePage: {
     posts: [
       { id: 1, message: "Hi, how are you?", likesCount: 25 },
@@ -107,6 +109,10 @@ export const updateNewNewsText = (newText) => {
 
   state.newsPage.newNewsText = newText;
   rerenderEntireTree(state);
+};
+
+export const subscribe =  (observer) => {
+  rerenderEntireTree = observer;
 };
 
 
