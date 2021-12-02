@@ -12,25 +12,26 @@ const Dialogs = (props) => {
 
   const newMessage = React.createRef();
   const addMessage = () => {
-    props.addMessage();
+    props.dispatch({ type: 'ADD-MESSAGE' });
   };
 
   const onMessageChange = () => {
 
     const text = newMessage.current.value;
-    props.updateNewMessageText(text);
+    const action = { type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text }
+    props.dispatch(action);
   };
 
 
   return (
     <div className={classes.dialogs}>
-   
+
       <div className={classes.dialogItem}>
         {dialogsElements}
       </div>
-      
+
       <div className={classes.messages}>
-        
+
         {messagesElements}
       </div>
       <div>
@@ -39,7 +40,7 @@ const Dialogs = (props) => {
       </div>
     </div>
   )
- 
+
 };
 
 export default Dialogs;

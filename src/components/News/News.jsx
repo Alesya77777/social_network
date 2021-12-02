@@ -8,13 +8,14 @@ const News = (props) => {
 
   const newNewsElement = React.createRef();
   const addNews = () => {
-    props.addNews()
+    props.dispatch({ type: 'ADD-NEWS' })
   }
 
   const onNewsChange = () => {
-  
+
     const text = newNewsElement.current.value;
-    props.updateNewNewsText(text);
+    const action = { type: 'UPDATE-NEW-NEWS-TEXT', newText: text }
+    props.dispatch(action);
   }
 
   return (

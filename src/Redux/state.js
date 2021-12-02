@@ -50,58 +50,55 @@ let store = {
       newNewsText: "Новость",
     },
   },
-  getState () {
+  getState() {
     return this._state;
   },
-  _callSibscriber () {
+  _callSibscriber() {
     console.log("h");
   },
-  addPost () {
-    const newPost = {
-      id: 4,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0,
-    };
-  
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSibscriber(this._state);
-  },
-  updateNewPostText (newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSibscriber(this._state);
-  },
-  addMessage () {
-    const newMessage = {
-      id: 5,
-      message: this._state.dialogsPage.newMessageText,
-    };
-  
-    this._state.dialogsPage.messages.push(newMessage);
-    this._state.dialogsPage.newMessageText = '';
-    this._callSibscriber(this._state);
-  },
-  updateNewMessageText (newText) {
-
-    this._state.dialogsPage.newMessageText = newText;
-    this._callSibscriber(this._state);
-  },
-  addNews () {
-    const newNews = {
-      id: 5,
-      photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg",
-      message: this._state.newsPage.newNewsText,
-    };
-    this._state.newsPage.news.push(newNews);
-    this._state.newsPage.newNewsText = '';
-    this._callSibscriber(this._state);
-  },
-  updateNewNewsText (newText) {
-    this._state.newsPage.newNewsText = newText;
-    this._callSibscriber(this._state);
-  },
-  subscribe (observer) {
+  subscribe(observer) {
     this._callSibscriber = observer;
+  },
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      const newPost = {
+        id: 4,
+        message: this._state.profilePage.newPostText,
+        likesCount: 0,
+      };
+
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSibscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSibscriber(this._state);
+    } else if (action.type === 'ADD-MESSAGE') {
+      const newMessage = {
+        id: 5,
+        message: this._state.dialogsPage.newMessageText,
+      };
+
+      this._state.dialogsPage.messages.push(newMessage);
+      this._state.dialogsPage.newMessageText = '';
+      this._callSibscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+
+      this._state.dialogsPage.newMessageText = action.newText;
+      this._callSibscriber(this._state);
+    } else if (action.type === 'ADD-NEWS') {
+      const newNews = {
+        id: 5,
+        photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg",
+        message: this._state.newsPage.newNewsText,
+      };
+      this._state.newsPage.news.push(newNews);
+      this._state.newsPage.newNewsText = '';
+      this._callSibscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-NEWS-TEXT') {
+      this._state.newsPage.newNewsText = action.newText;
+      this._callSibscriber(this._state);
+    }
   }
 };
 
