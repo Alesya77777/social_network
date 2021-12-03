@@ -1,4 +1,5 @@
 import React from 'react';
+import { addNewsActionCreator, updateNewNewsTextActionCreator } from '../../Redux/state';
 import AddNews from './AddNews/AddNews';
 import classes from './News.module.css';
 
@@ -8,13 +9,13 @@ const News = (props) => {
 
   const newNewsElement = React.createRef();
   const addNews = () => {
-    props.dispatch({ type: 'ADD-NEWS' })
+    props.dispatch(addNewsActionCreator());
   }
 
   const onNewsChange = () => {
 
     const text = newNewsElement.current.value;
-    const action = { type: 'UPDATE-NEW-NEWS-TEXT', newText: text }
+    const action = updateNewNewsTextActionCreator(text);
     props.dispatch(action);
   }
 
