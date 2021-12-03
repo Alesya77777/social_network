@@ -1,11 +1,7 @@
-const ADD_POST = "ADD-POST"
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const ADD_MESSAGE = "ADD-MESSAGE"
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-const ADD_NEWS = "ADD-NEWS"
-const UPDATE_NEW_NEWS_TEXT = "UPDATE-NEW-NEWS-TEXT";
-
-
+import dialogsReducer from "./dialogsReducer";
+import newsReducer from "./newsReducer";
+import profileReducer from "./profileReducer";
+import sitebarReducer from "./sitebarReducer";
 
 let store = {
   _state: {
@@ -69,68 +65,17 @@ let store = {
     this._callSibscriber = observer;
   },
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      const newPost = {
-        id: 4,
-        message: this._state.profilePage.newPostText,
-        likesCount: 0,
-      };
-
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSibscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSibscriber(this._state);
-    } else if (action.type === ADD_MESSAGE) {
-      const newMessage = {
-        id: 5,
-        message: this._state.dialogsPage.newMessageText,
-      };
-
-      this._state.dialogsPage.messages.push(newMessage);
-      this._state.dialogsPage.newMessageText = '';
-      this._callSibscriber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-
-      this._state.dialogsPage.newMessageText = action.newText;
-      this._callSibscriber(this._state);
-    } else if (action.type === ADD_NEWS) {
-      const newNews = {
-        id: 5,
-        photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg",
-        message: this._state.newsPage.newNewsText,
-      };
-      this._state.newsPage.news.push(newNews);
-      this._state.newsPage.newNewsText = '';
-      this._callSibscriber(this._state);
-    } else if (action.type === UPDATE_NEW_NEWS_TEXT) {
-      this._state.newsPage.newNewsText = action.newText;
-      this._callSibscriber(this._state);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.newsPage = newsReducer(this._state.newsPage, action);
+    this._state.sitebar = sitebarReducer(this._state.sitebar, action);
+  
+    this._callSibscriber(this._state);
   }
 };
 
-export const addPostActionCreator = () => {
-  return { type: ADD_POST }
-};
-export const updateNewPostTextActionCreator = (text) => {
-  return { type: UPDATE_NEW_POST_TEXT, newText: text }
-};
 
-export const addMessageActionCreator = () => {
-  return { type: ADD_MESSAGE }
-};
-export const updateNewMessageTextActionCreator = (text) => {
-  return { type: UPDATE_NEW_MESSAGE_TEXT, newText: text }
-};
 
-export const addNewsActionCreator = () => {
-  return { type: ADD_NEWS }
-};
-export const updateNewNewsTextActionCreator = (text) => {
-  return { type: UPDATE_NEW_NEWS_TEXT, newText: text }
-};
 
 
 
