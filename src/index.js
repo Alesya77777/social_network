@@ -4,7 +4,7 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-import store from './Redux/state';
+import store from './Redux/store';
 
 
 
