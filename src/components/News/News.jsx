@@ -1,22 +1,19 @@
 import React from 'react';
-import { addNewsActionCreator, updateNewNewsTextActionCreator } from '../../Redux/newsReducer';
 import AddNews from './AddNews/AddNews';
 import classes from './News.module.css';
 
 const News = (props) => {
 
-  const newsElements = props.newsPage.news.map((n) => <AddNews src={n.photo} message={n.message} />);
+  const newsElements = props.news.map((n) => <AddNews src={n.photo} message={n.message} />);
 
-  const newNewsElement = React.createRef();
   const addNews = () => {
-    props.dispatch(addNewsActionCreator());
+    props.addNews();
   }
 
-  const onNewsChange = () => {
+  const onNewsChange = (e) => {
 
-    const text = newNewsElement.current.value;
-    const action = updateNewNewsTextActionCreator(text);
-    props.dispatch(action);
+    const text = e.target.value;
+    props.updateNewNewsText(text);
   }
 
   return (
@@ -25,10 +22,9 @@ const News = (props) => {
         {newsElements}
       </div>
       <div className={classes.newNews} >
-        <textarea onChange={onNewsChange} ref={newNewsElement} value={props.newsPage.newNewsText} ></textarea>
+        <textarea onChange={onNewsChange}  value={props.newNewsText} ></textarea>
         <button onClick={addNews} >Добавить новость</button>
       </div>
-
     </div>
   )
 };
