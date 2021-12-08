@@ -13,23 +13,21 @@ const initialState = {
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_NEWS: {
-      const newNews = {
-        id: 5,
-        photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg",
-        message: state.newNewsText,
-      };
-      let stateCopy = { ...state };
-      stateCopy.news = [...state.news]
-      stateCopy.news.push(newNews);
-      stateCopy.newNewsText = '';
-      return stateCopy;
-    }
-    case UPDATE_NEW_NEWS_TEXT: {
-      let stateCopy = {...state};
-      stateCopy.newNewsText = action.newText;
-      return stateCopy;
-    }
+    case ADD_NEWS:
+      return ({
+        ...state,
+        news: [...state.news, {
+          id: 5,
+          photo: "https://www.rsl.ru/photo/dataphotos/2/2e/2e171790b8017d32658ddfa8fc2ba353.jpg",
+          message: state.newNewsText,
+        }],
+        newNewsText: '',
+      });
+    case UPDATE_NEW_NEWS_TEXT:
+      return ({
+        ...state,
+        newNewsText: action.newText
+      });
     default:
       return state;
   };

@@ -4,7 +4,7 @@ import classes from './News.module.css';
 
 const News = (props) => {
 
-  const newsElements = props.news.map((n) => <AddNews src={n.photo} message={n.message} />);
+  const newsElements = props.news.map((n) => <AddNews src={n.photo} key={n.id} message={n.message} />);
 
   const addNews = () => {
     props.addNews();

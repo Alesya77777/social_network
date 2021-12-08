@@ -11,8 +11,8 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-  const dialogsElements = props.dialogs.map((d, index) => <DialogItem name={d.name} key={index} id={d.id} src={d.photo} />);
-  const messagesElements = props.messages.map((m, index) => <Message message={m.message} key={index} />)
+  const dialogsElements = props.dialogs.map((d, index) => <DialogItem name={d.name} key={d.id} id={d.id} src={d.photo} />);
+  const messagesElements = props.messages.map((m, index) => <Message message={m.message} key={m.id} />)
 
   
   const onSentMessage = () => {
