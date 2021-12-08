@@ -4,7 +4,8 @@ const initialState = {
     { id: 2, name: "Messages", path: "/dialogs" },
     { id: 3, name: "News", path: "/news" },
     { id: 4, name: "Music", path: "/music" },
-    { id: 5, name: "Settings", path: "/settings" },
+    { id: 5, name: "Users", path: "/users" },
+    { id: 6, name: "Settings", path: "/settings" },
   ],
   friends: [
     { id: 1, name: "Andrew", photo: "https://teleprogramma.pro/wp-content/uploads/2016/03/596a3d04481816330f07e4f97510c28f-1-1024x754.jpg" },
