@@ -6,17 +6,41 @@ import userImage from '../../assets/image/user.jpg';
 
 class Users extends React.Component {
 
-   componentDidMount() {
+  componentDidMount() {
     axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.sizePage}`)
+      .then(response => {
+        this.props.setUsers(response.data.items);
+        this.props.setTotalUsersCount(response.data.totalCount)
+      });
+  };
+
+  onPageChanged = (pageNumber) => {
+    this.props.setCurrentPage(pageNumber);
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.sizePage}`)
       .then(response => { this.props.setUsers(response.data.items) });
   };
 
-
-
   render() {
+
+    const pageCount = Math.ceil(this.props.totalUsersCount / this.props.sizePage);
+    let page = [];
+    for (let i = 1; i <= pageCount; i++) {
+      page.push(i);
+    }
+
+
+
+
     return (
       <div>
+        <div className={classes.nagination}>
+          {
+            page.map((p) => (<button className={this.props.currentPage === p && classes.selectedPage} type="button"
+              onClick={() => this.onPageChanged(p)} >{p}</button>))
+          }
+        </div>
         {this.props.users.map((u) =>
           <div key={u.id} className={classes.wrapper}>
             <div className={classes.user}>
