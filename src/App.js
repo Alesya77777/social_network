@@ -8,7 +8,7 @@ import NavbarContainer from './components/Navbar/NavbarContainer';
 import NewsContainer from './components/News/NewsContainer';
 import Profile from './components/Profile/Profile';
 import Settings from './components/Settings/Settings';
-import UsersContainer from './components/Users/UsersContaine';
+import UsersContainer from './components/Users/UsersContainer';
 
 
 
