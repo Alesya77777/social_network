@@ -1,4 +1,30 @@
 .discriptionBlock {
+  display: grid;
+  grid-template-columns: 5fr 10fr;
   padding: 10px;
+  margin: 20px;
 }
 
+.discriptionBlock img{
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.fullname {
+  text-transform: uppercase;
+  font-weight: bold;
+
+}
+
+.personDescription {
+  font-weight: bold;
+}
+
+.personDescription span {
+  font-weight: normal;
+}
