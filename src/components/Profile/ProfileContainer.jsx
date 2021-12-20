@@ -7,8 +7,9 @@ import Profile from "./Profile";
 class ProfileContainer extends React.Component {
 
 
-  componentDidMount() {
 
+  componentDidMount() {
+debugger;
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/profile/10`)
       .then(response => {
@@ -18,13 +19,10 @@ class ProfileContainer extends React.Component {
   };
 
 
-
   render() {
-
 
     return (
       <>
-
         <Profile {...this.props} profile={this.props.profile} />
       </>
 
@@ -40,6 +38,10 @@ class ProfileContainer extends React.Component {
      }
    )
  };
+
+
+
+
  export default connect(mapStateToProps, {
    setUserProfile,
  })(ProfileContainer);
