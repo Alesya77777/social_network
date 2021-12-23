@@ -1,8 +1,19 @@
 .header {
+  display: flex;
   grid-area: header;
   background-color: lightgreen;
+  justify-content: space-between;
 }
 
 .header img {
   width: 4%;
+}
+
+.auth {
+  margin-top: 15px;
+  margin-right: 30px;
+}
+
+.auth a {
+  color: white;
 }

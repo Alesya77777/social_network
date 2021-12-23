@@ -38,14 +38,11 @@ const ProfileInfo = (props) => {
           </div>
           <div>
             <h3>Социальные сети</h3>
-   
-               <div className={classes.wrapper}>
+            <div className={classes.wrapper}>
               {props.profile.contacts.facebook ? <a className={classes.facebook} href={props.profile.contacts.facebook}> </a> : <></>}
               {props.profile.contacts.instagram ? <a className={classes.instagram} href={props.profile.contacts.instagram}> </a> : <></>}
-              </div>
-            
+            </div>
           </div>
-
         </div>
       </div>
     </div>
