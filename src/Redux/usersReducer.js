@@ -5,7 +5,7 @@ const SET_USERS = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
-
+const TOGGLE_IS_FOLLLOWING_PROGRESS = "TOGGLE_IS_FOLLLOWING_PROGRESS";
 
 
 const initialState = {
@@ -14,6 +14,8 @@ const initialState = {
   totalUsersCount: 0,
   sizePage: 15,
   isFetching: true,
+  isFollowingProgress: [],
+
 
   // users: [
   //   { id: 1, fullname: "Andrew", location: { country: "Russia", city: "Moscov" }, followed: false, status: "I like football", photo: "https://teleprogramma.pro/wp-content/uploads/2016/03/596a3d04481816330f07e4f97510c28f-1-1024x754.jpg" },
@@ -54,7 +56,14 @@ const usersReducer = (state = initialState, action) => {
       return { ...state, totalUsersCount: action.count };
     case TOGGLE_IS_FETCHING:
       return { ...state, isFetching: action.isFetching };
-   
+    case TOGGLE_IS_FOLLLOWING_PROGRESS:
+      return {
+        ...state,
+         isFollowingProgress: action.isFetching
+          ? [...state.isFollowingProgress, action.userId]
+          : [state.isFollowingProgress.filter(id => id !== action.userId)]
+      };
+
     default:
       return state;
   };
@@ -81,6 +90,9 @@ export const setTotalUsersCount = (totalUsersCount) => {
 };
 export const toggleIsFetching = (flag) => {
   return { type: TOGGLE_IS_FETCHING, isFetching: flag }
+};
+export const toggleIsFollowingProgress = (flag, userId) => {
+  return { type: TOGGLE_IS_FOLLLOWING_PROGRESS, isFetching: flag, userId }
 };
 
 
