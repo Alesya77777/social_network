@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Users.module.css';
 import userImage from '../../assets/image/user.jpg';
 import { NavLink } from 'react-router-dom';
-import { followAPI } from '../../api/api';
+
 
 
 const Users = (props) => {
@@ -28,30 +28,14 @@ const Users = (props) => {
               <img src={u.photos.small != null ? u.photos.small : userImage} alt="" />
             </NavLink>
             {u.followed
-              ? <button disabled={props.isFollowingProgress.some(id => id===u.id)} onClick={() => {
-                props.toggleIsFollowingProgress(true, u.id);
-
-                followAPI.deleteFollow(u.id)
-                  .then(data => {
-                    if (data.resultCode === 0) {
-                      props.unfollow(u.id)
-                    }
-                    props.toggleIsFollowingProgress(false, u.id);
-                  })
-
-
-              }} type="button">Unfollow</button>
-              : <button disabled={props.isFollowingProgress.some(id => id===u.id)} onClick={() => {
-                props.toggleIsFollowingProgress(true, u.id);
-                followAPI.postUnfollow(u.id)
-                  .then(data => {
-                    if (data.resultCode === 0) {
-                      props.follow(u.id)
-                    }
-                    props.toggleIsFollowingProgress(false, u.id);
-                  })
-
-              }} type="button">Follow</button>}
+              ? <button disabled={props.isFollowingProgress.some(id => id === u.id)}
+                onClick={() => {
+                  props.unfollow(u.id)
+                }} type="button">Unfollow</button>
+              : <button disabled={props.isFollowingProgress.some(id => id === u.id)}
+                onClick={() => {
+                  props.follow(u.id)
+                }} type="button">Follow</button>}
           </div>
           <div className={classes.userInfo}>
             <div className={classes.info}>
