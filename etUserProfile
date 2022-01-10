@@ -1,0 +1,237 @@
+[33mcommit 2e8c967d6975f8349eb4917aec7c774f20a30810[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Mon Jan 10 23:22:17 2022 +0300
+
+    Добавила thunk
+
+[33mcommit 77cd719e423f94c010351a3fc6a1beeaaf924029[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Thu Dec 30 23:52:55 2021 +0300
+
+    Добавила пробелы
+
+[33mcommit e13a4886c75074cb2097cc95af45e6e1f8ea6535[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Wed Dec 29 23:50:30 2021 +0300
+
+    Добавила пробелы
+
+[33mcommit a9e7c541cc703db177e74667187efccb65dd9d8d[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Tue Dec 28 23:53:48 2021 +0300
+
+    Вынесла логику из UI в BLL
+
+[33mcommit 9cd886d02853ec2d8659dbf57259f6257c29052d[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Mon Dec 27 22:19:06 2021 +0300
+
+    Добавила блокировку кнопки подписки до получения ответа от сервера
+
+[33mcommit efe113e4251f4fa837fc442f1f50ef5149048a36[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Mon Dec 27 15:16:37 2021 +0300
+
+    Вынесла запросы в отдельный файл
+
+[33mcommit b62135f66ab8236912cf811ebaf6408847b0e313[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Mon Dec 27 11:44:55 2021 +0300
+
+    Сделала запросы на сервер при подписке и отписке от пользователя
+
+[33mcommit c2f8b87bb74587cddfe1ab26c69cb8e065d52344[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Thu Dec 23 18:55:40 2021 +0300
+
+    Сделала логин
+
+[33mcommit f16f2b514afb83b5a8f2cf6c80b7b25e65c86c2b[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Tue Dec 21 16:20:55 2021 +0300
+
+    Добавила изменение url при клике на пользователя
+
+[33mcommit 2d1a3118a450d3e420c8dddac4c2d05459a38ea0[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Mon Dec 20 23:48:22 2021 +0300
+
+    Добавила в url id пользователя
+
+[33mcommit ef808bfbb741a8ee6986cb5ea092b57563b86bf2[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Fri Dec 17 22:38:18 2021 +0300
+
+    Добавила инфорацию о пользователе
+
+[33mcommit 15faee977483c993480f158e2722397bc4bfc900[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Thu Dec 16 17:45:23 2021 +0300
+
+    Добавила запрос информации о профиле с сервера
+
+[33mcommit 064c30b2747972338be067d006b901348b07624e[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Thu Dec 16 10:03:44 2021 +0300
+
+    Рефакторинг mapDispatchToProps
+
+[33mcommit 248490319a39b95408a7bca74651353a5cfe9bf8[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Wed Dec 15 16:55:02 2021 +0300
+
+    Добавила прелоадер
+
+[33mcommit 71db50d695d4f1ac6087c6f822b36e643abad9ff[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Wed Dec 15 15:27:24 2021 +0300
+
+    Сделала чистую  презентационную  компоненту
+
+[33mcommit d50a4c8f900dc08d8ef70fbb0d384a7139b45339[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Sat Dec 11 23:36:24 2021 +0300
+
+    Сделала пагинацию
+
+[33mcommit 621da03536dbb656e272ca775204b7a0dc1e2f47[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Fri Dec 10 16:07:00 2021 +0300
+
+    Добавила метод жизненного цикла
+
+[33mcommit 513c205ecbc9f4887dd7c39452d724db2c0fe797[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Fri Dec 10 16:05:00 2021 +0300
+
+    Сделала Users классовой компонентой
+
+[33mcommit e414de01a22665205f75ef980a39d6b173bf9512[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Thu Dec 9 22:38:33 2021 +0300
+
+    Вынесла  получение пользователей по нажатию на кнопку
+
+[33mcommit 060917df53d1224e7aa4c6a351590f86ba5c9638[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Wed Dec 8 22:56:48 2021 +0300
+
+    Сделала страницу пользователей
+
+[33mcommit 49fc18dfad0c2e9fdfa5068e0ef95a2b1e289f04[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Wed Dec 8 13:09:07 2021 +0300
+
+    Сделала рефакторинг копирования объекта
+
+[33mcommit 3586820adcf511724a2db8ffb00cfc85c23d861a[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Tue Dec 7 23:51:55 2021 +0300
+
+    Сделала копию состояния
+
+[33mcommit 448f10688f0d35e41281ffd3b1263f575aca699b[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Tue Dec 7 22:54:42 2021 +0300
+
+    Подключила библиотеку react-redux
+
+[33mcommit e119e80434858c839229bcef675f122eff333c0a[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Tue Dec 7 17:26:32 2021 +0300
+
+    Добавила context api
+
+[33mcommit 3ea9c111c29a6a6d627db7f467aae631c5391da6[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Mon Dec 6 23:39:32 2021 +0300
+
+    Добавила контейнерные компоненты
+
+[33mcommit cc15ca588625985b400c067adeecb196a40def5f[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Mon Dec 6 15:36:18 2021 +0300
+
+    Подключила redux
+
+[33mcommit 95550098b9b3a6b068c05fb54ed93dd1b0d3a056[m[33m ([m[1;32mgit-status[m[33m)[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Sun Dec 5 23:55:44 2021 +0300
+
+    Удалила лишние строки
+
+[33mcommit 20a4fde277c833e334085a77ccd078d55966b002[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Sun Dec 5 23:51:07 2021 +0300
+
+    Переименовала файл
+
+[33mcommit ff6ba50f5a8899d3e79f192c2837bba580d093b4[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Sat Dec 4 00:33:43 2021 +0300
+
+    Вынесла логику в reducer
+
+[33mcommit 3242e113f5ce80a58c8a388487c6a8a81972cb67[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Fri Dec 3 17:57:13 2021 +0300
+
+    Вынесла название типа объекта в переменные
+
+[33mcommit 4e8fcc3bd3c2bd0985fc9b1725641d21f54c5ceb[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Thu Dec 2 13:35:40 2021 +0300
+
+    Вынесла методы в dispatch
+
+[33mcommit 6c41d4f2e736ec030eee5d2d05f7714293586bc3[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Wed Dec 1 23:26:37 2021 +0300
+
+    Оформила объект с данными по принципам ООП
+
+[33mcommit 45754289a9fa6f3e787aa7ee5c1da83726e2487e[m
+Merge: ab26ea7 c94d5f6
+Author: Alesya77777 <54947487+Alesya77777@users.noreply.github.com>
+Date:   Wed Dec 1 22:37:54 2021 +0300
+
+    Merge pull request #2 from Alesya77777/module35
+    
+    Вернула render  в index. Добавление и ввод в поле работают корректно.
+
+[33mcommit c94d5f636eaf9ba5ffd916f2843746823ce7da5e[m
+Merge: f5cff7a ab26ea7
+Author: Alesya77777 <54947487+Alesya77777@users.noreply.github.com>
+Date:   Wed Dec 1 22:37:43 2021 +0300
+
+    Merge branch 'master' into module35
+
+[33mcommit f5cff7ada8958ff1344eda0d11ec2dd326f7903d[m[33m ([m[1;31morigin/module35[m[33m, [m[1;32mmodule35[m[33m)[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Wed Dec 1 22:29:47 2021 +0300
+
+    Вернула render  в index. Добавление и ввод в поле работают корректно.
+
+[33mcommit ab26ea7275b7640535efeb9f93f61d6990753be3[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Tue Nov 30 15:09:30 2021 +0300
+
+    Вернула рендер страницы в index файл
+
+[33mcommit be49d8dac97b6bb72a36a07deb193c7d5b3e5539[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Tue Nov 30 01:05:02 2021 +0300
+
+    Сделала добавление новых постов,  сообщений и новостей на страницу
+
+[33mcommit 3ccd4e05d446adb71f8dd79e62653c673c3d3d50[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Mon Nov 29 16:59:25 2021 +0300
+
+    Вынесла вызов функции отрисовки в отдельный файл render
+
+[33mcommit f5633223dfdf66c285f28e4953cf96deeea352f0[m
+Author: Alesya <kyzya77777@gmail.com>
+Date:   Mon Nov 29 15:29:58 2021 +0300
+
+    Добавила данные с
