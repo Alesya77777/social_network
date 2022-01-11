@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { addNewsActionCreator, updateNewNewsTextActionCreator } from '../../Redux/newsReducer';
 import News from './News';
 
@@ -22,7 +23,6 @@ let mapDispatchToProps = (dispatch) => {
   )
 };
 
-const NewsContainer = connect(mapStateToProps, mapDispatchToProps)(News);
-
-
-export default NewsContainer;
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps)
+)(News);
