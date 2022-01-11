@@ -50,13 +50,13 @@ export const setUserProfile = (userProfile) => {
 };
 
 
-//  export const getProfile = (userId) => {
-//    return (dispatch) => {
-//      profileAPI.getProfile(userId)
-//      .then(data => {
-//        dispatch(setUserProfile(data));
-//      })
-//    }
-//  };
- 
+  export const getProfile = (userId) => {
+    return (dispatch) => {
+      profileAPI.getProfile(userId)
+      .then(data => {
+        dispatch(setUserProfile(data));
+      })
+    }
+  };
+
 export default profileReducer;
