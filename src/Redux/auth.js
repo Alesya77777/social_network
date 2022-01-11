@@ -31,7 +31,7 @@ export const setAuthUserData = (userId, login, email, photo) => {
 };
 
 
-export const auth = () => {
+export const getAuthUserData = () => {
   return (dispatch) => {
     authAPI.getDataMe()
     .then(data => {

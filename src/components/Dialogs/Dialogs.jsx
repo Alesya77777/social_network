@@ -2,6 +2,7 @@ import DialogItem from './DailogItem/DialogItem';
 import React from 'react';
 import classes from './Dialogs.module.css';
 import Message from './Message/Message';
+import { Navigate } from 'react-router-dom';
 
 
 
@@ -14,7 +15,7 @@ const Dialogs = (props) => {
   const dialogsElements = props.dialogs.map((d) => <DialogItem name={d.name} key={d.id} id={d.id} src={d.photo} />);
   const messagesElements = props.messages.map((m) => <Message message={m.message} key={m.id} />)
 
-  
+
   const onSentMessage = () => {
     props.sentMessage();
   };
@@ -23,6 +24,8 @@ const Dialogs = (props) => {
     let body = e.target.value;
     props.updateNewMessageText(body);
   };
+
+  if (!props.auth) { return <Navigate to="/login" /> }
 
 
   return (
@@ -34,7 +37,7 @@ const Dialogs = (props) => {
         {messagesElements}
       </div>
       <div>
-        <textarea onChange={onMessageChange}  value={props.newMessageText} ></textarea>
+        <textarea onChange={onMessageChange} value={props.newMessageText} ></textarea>
         <button onClick={onSentMessage}> Добавить сообщение</button>
       </div>
     </div>

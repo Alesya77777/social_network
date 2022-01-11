@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getProfile,} from "../../Redux/profileReducer";
+import { Navigate, useParams } from "react-router-dom";
+import {getUserProfile,} from "../../Redux/profileReducer";
 import Profile from "./Profile";
 
 const withRouter = WrappedComponent => props => {
@@ -22,11 +22,12 @@ debugger;
       userId = 2;
     }
 debugger;
-    this.props.getProfile(userId);
+    this.props.getUserProfile(userId);
   };
 
 
   render() {
+    if(!this.props.auth) { return <Navigate to="/login" />}
 
     return (
       <>
@@ -43,6 +44,7 @@ const mapStateToProps = (state) => {
   return (
     {
       profile: state.profilePage.profile,
+      auth: state.auth.isAuth,
     }
   )
 };
@@ -52,6 +54,6 @@ const WithUrlDataContainerComponent = withRouter(ProfileContainer);
 
 
 export default connect(mapStateToProps, {
-   getProfile: getProfile ,
+  getUserProfile: getUserProfile ,
 })(WithUrlDataContainerComponent);
 
