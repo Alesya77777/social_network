@@ -1,7 +1,8 @@
 .discriptionBlock {
   display: grid;
-  grid-template-columns: 5fr 10fr;
+  grid-template-columns: 5fr ;
   padding: 10px;
+  margin: 20px;
   margin: 20px;
 }
 

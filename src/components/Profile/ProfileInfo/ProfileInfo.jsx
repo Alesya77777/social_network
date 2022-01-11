@@ -1,5 +1,6 @@
 import Preloader from '../../Common/Preloader/Preloader';
 import classes from './ProfileInfo.module.css';
+import ProfileStatus from './ProfileStatus';
 
 
 const ProfileInfo = (props) => {
@@ -9,9 +10,10 @@ const ProfileInfo = (props) => {
   }
   return (
     <div>
-      <img src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="" />
+      {/* <img src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="" /> */}
       <div className={classes.discriptionBlock}>
         <img src={props.profile.photos.large} alt="" />
+        <ProfileStatus status={'Hello'} />
         <div className={classes.info}>
           <span className={classes.fullname}>{props.profile.fullName}</span>
           <div> {
