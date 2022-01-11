@@ -16,23 +16,22 @@ import UsersContainer from './components/Users/UsersContainer';
 const App = () => {
   return (
     //  <BrowserRouter>
-      <div className="app-wrapper">
-        <HeaderContainer />
-        <NavbarContainer  />
-        <div className="app-wrapper-content">
-          <Routes>
-          <Route path="/profile" element={<ProfileContainer/>} />
-            <Route path="/profile/:userId" element={<ProfileContainer/>} />
-            <Route path="/dialogs" element={<DialogsContainer  />} />
-            <Route path="/news" element={<NewsContainer  />} />
-            <Route path="/music" element={<Music />} />
-            <Route path="/users" element={<UsersContainer />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/login" element={<Login />} />
-
-          </Routes>
-        </div>
+    <div className="app-wrapper">
+      <HeaderContainer />
+      <NavbarContainer />
+      <div className="app-wrapper-content">
+        <Routes>
+          <Route path="/profile" element={<ProfileContainer />} />
+          <Route path="/profile/:userId" element={<ProfileContainer />} />
+          <Route path="/dialogs" element={<DialogsContainer />} />
+          <Route path="/news" element={<NewsContainer />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/users" element={<UsersContainer />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </div>
+    </div>
     //  </BrowserRouter>
   );
 }
