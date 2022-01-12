@@ -2,13 +2,8 @@ import DialogItem from './DailogItem/DialogItem';
 import React from 'react';
 import classes from './Dialogs.module.css';
 import Message from './Message/Message';
-
-
-
-
-
-
-
+import { reduxForm } from 'redux-form';
+import { Field } from 'redux-form';
 
 const Dialogs = (props) => {
 
@@ -16,16 +11,9 @@ const Dialogs = (props) => {
   const messagesElements = props.messages.map((m) => <Message message={m.message} key={m.id} />)
 
 
-  const onSentMessage = () => {
-    props.sentMessage();
+  const addNewMessage = (value) => {
+    props.sentMessage(value.newMessageText);
   };
-
-  const onMessageChange = (e) => {
-    let body = e.target.value;
-    props.updateNewMessageText(body);
-  };
-
-
 
 
   return (
@@ -36,13 +24,22 @@ const Dialogs = (props) => {
       <div className={classes.messages}>
         {messagesElements}
       </div>
-      <div>
-        <textarea onChange={onMessageChange} value={props.newMessageText} ></textarea>
-        <button onClick={onSentMessage}> Добавить сообщение</button>
-      </div>
+      <AddMessageFormRedux onSubmit={addNewMessage} />
     </div>
   )
 
 };
+
+
+const AddMessageForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <Field component={"textarea"} name={"newMessageText"} placeholder={"Add message"} />
+      <button > Добавить сообщение</button>
+    </form>
+  )
+}
+
+const AddMessageFormRedux = reduxForm({ form: "dialogAddMessageForm" })(AddMessageForm);
 
 export default Dialogs;
