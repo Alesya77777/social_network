@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { getUserProfile, getUserStatus, updateUserStatus, } from "../../Redux/profileReducer";
+import { getUserProfile, requestUserstatus, updateUserStatus, } from "../../Redux/profileReducer";
 import Profile from "./Profile";
 
 export const withRouter = WrappedComponent => props => {
@@ -28,7 +28,7 @@ class ProfileContainer extends React.Component {
     }
 
     this.props.getUserProfile(userId);
-    this.props.getUserStatus(userId);
+    this.props.requestUserstatus(userId);
   };
 
 
@@ -56,7 +56,7 @@ const mapStateToProps = (state) => ({
 export default compose(
   connect(mapStateToProps, {
     getUserProfile: getUserProfile,
-    getUserStatus: getUserStatus,
+    requestUserstatus: requestUserstatus,
     updateUserStatus: updateUserStatus,
   }),
   withRouter,

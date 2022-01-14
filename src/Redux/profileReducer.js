@@ -53,7 +53,7 @@ export const getUserProfile = (userId) => (dispatch) => {
     })
 };
 
-export const getUserStatus = (userId) => (dispatch) => {
+export const requestUserstatus = (userId) => (dispatch) => {
   profileAPI.getStatus(userId)
     .then(data => {
       dispatch(setUserStatus(data));
