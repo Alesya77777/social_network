@@ -1,23 +1,32 @@
-export const getUsers = (state) => {
- return state.usersPage.users
+import { createSelector } from "reselect";
+
+const getUsersSelector = (state) => {
+  return state.usersPage.users
 };
 
+export const getUsers = createSelector(getUsersSelector,
+  (users) => {
+    return users.filter(u => true);
+  });
+
+
+
 export const getTotalUsersCount = (state) => {
- return state.usersPage.totalUsersCount
+  return state.usersPage.totalUsersCount
 };
 
 export const getSizePage = (state) => {
- return state.usersPage.sizePage
+  return state.usersPage.sizePage
 };
 
 export const getCurrentPage = (state) => {
- return state.usersPage.currentPage
+  return state.usersPage.currentPage
 };
 
 export const getIsFetching = (state) => {
- return state.usersPage.isFetching
+  return state.usersPage.isFetching
 };
 
 export const getIsFollowingProgress = (state) => {
- return state.usersPage.isFollowingProgress
+  return state.usersPage.isFollowingProgress
 };
