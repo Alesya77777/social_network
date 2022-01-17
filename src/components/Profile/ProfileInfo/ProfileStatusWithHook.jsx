@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const ProfileStatusWithHook = (props) => {
@@ -10,14 +11,19 @@ const ProfileStatusWithHook = (props) => {
     setEditMode(true);
   };
 
-const   deactivateEditMode = () => {
-  setEditMode(false);
-  props.updateUserStatus(status);
-};
+  const deactivateEditMode = () => {
+    setEditMode(false);
+    props.updateUserStatus(status);
+  };
 
-const onStatusChange = (e) => {
-  setStatus(e.currentTarget.value);
-};
+  const onStatusChange = (e) => {
+    setStatus(e.currentTarget.value);
+  };
+
+
+  useEffect(() => {
+    setStatus(props.status);
+  }, [props.status]);
 
   return (
     <div>
