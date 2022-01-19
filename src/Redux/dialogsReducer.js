@@ -1,5 +1,5 @@
 
-const ADD_MESSAGE = "ADD-MESSAGE"
+const ADD_MESSAGE = "dialogReducer/ADD-MESSAGE"
 
 const initialState = {
   dialogs: [

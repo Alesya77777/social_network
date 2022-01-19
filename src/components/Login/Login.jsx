@@ -4,13 +4,17 @@ import { Field } from "redux-form";
 import { reduxForm } from "redux-form";
 import { login} from "../../Redux/auth";
 import { required } from "../../units/validators/validators";
-import { Input } from "../Common/FormsControls/FormsControls";
+import { createField, Input } from "../Common/FormsControls/FormsControls";
 import classes from "./../Common/FormsControls/FormsControls.module.css"
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
 
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
+      {/* {createField("Логин","email", Input, [required], null, null)}
+      {createField("Пароль","password", Input, [required], {type:"password"}, null)}
+      {createField(null,"rememberMe", Input, [], {type:"checkbox"}, "Запомнить меня")} */}
+   
       <div>
         <Field placeholder={"Логин"} name={"email"} component={Input} validate={[required]} />
       </div>
@@ -21,7 +25,7 @@ const LoginForm = (props) => {
       <div>
         <Field type={"checkbox"} name={"rememberMe"} component={Input} /> Запомнить меня
       </div>
-      {props.error && <div className={classes.formSummaryError}> {props.error}</div>}
+      {error && <div className={classes.formSummaryError}> {error}</div>}
       <div>
         <button>Войти</button>
       </div>
