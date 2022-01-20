@@ -9,11 +9,11 @@ const Users = (props) => {
 
   return (
     <div>
-      <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged}
+      <Paginator  currentPage={props.currentPage} onPageChanged={props.onPageChanged}
         totalUsersCount={props.totalUsersCount} sizePage={props.sizePage} />
       {props.users.map((u) =>
-        <User user={u} isFollowingProgress={props.isFollowingProgress} follow={props.follow}
-          unfollow={props.unfollow}
+        <User key={u.id} user={u} isFollowingProgress={props.isFollowingProgress}
+          follow={props.follow} unfollow={props.unfollow}
         />)}
       <button className={classes.show}>Show more</button>
     </div>

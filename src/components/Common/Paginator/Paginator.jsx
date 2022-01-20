@@ -14,7 +14,7 @@ const Paginator = (props) => {
     <div className={classes.nagination}>
       {
         page.map((p) => (<button className={props.currentPage === p && classes.selectedPage} type="button"
-          onClick={() => props.onPageChanged(p)} >{p}</button>))
+          onClick={() => props.onPageChanged(p)} key={p.id} >{p}</button>))
       }
     </div>
   )
