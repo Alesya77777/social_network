@@ -1,5 +1,5 @@
-import { create } from "react-test-renderer"
-import { propTypes } from "redux-form";
+import { create } from "react-test-renderer";
+import  propTypes  from "redux-form";
 import ProfileStatus from "./ProfileStatus";
 
 describe("ProfileStatus component", () => {

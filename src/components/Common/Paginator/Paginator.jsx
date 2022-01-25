@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import classes from './Paginator.module.css';
 
 
-const Paginator = ({ totalUsersCount, sizePage, currentPage, onPageChanged, portionSize = 5 }) => {
+const Paginator = ({ totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 5 }) => {
 
-  const pageCount = Math.ceil(totalUsersCount / sizePage);
+  const pageCount = Math.ceil(totalItemsCount / pageSize);
   let pages = [];
   for (let i = 1; i <= pageCount; i++) {
     pages.push(i);
@@ -13,7 +13,7 @@ const Paginator = ({ totalUsersCount, sizePage, currentPage, onPageChanged, port
   let [ portionNumber, setPortionNumber ] = useState(1);
   let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   let rightPortionPageNumber = portionNumber * portionSize;
-debugger;
+  
   return (
     <div className={classes.nagination}>
       {portionNumber > 1 && <button onClick={() => { setPortionNumber(portionNumber - 1) }} >PREV</button>}
@@ -21,7 +21,6 @@ debugger;
         pages
           .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
           .map((p) => {
-            debugger;
             return <button className={currentPage === p && classes.selectedPage} type="button"
             onClick={(e) => onPageChanged(p)} key={p.id} >{p}</button>})
       }
