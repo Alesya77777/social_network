@@ -65,7 +65,6 @@ const AppContainer = compose(
 
 
 const SamuraiJSApp = (props) => {
-  debugger;
   return (<BrowserRouter>
     <Provider store={store} >
       <AppContainer />
