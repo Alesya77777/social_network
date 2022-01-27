@@ -1,6 +1,8 @@
 import Preloader from '../../Common/Preloader/Preloader';
 import classes from './ProfileInfo.module.css';
 import ProfileStatusWithHook from './ProfileStatusWithHook';
+import userImage from '../../../assets/image/user.jpg';
+
 
 
 
@@ -9,11 +11,19 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />
   }
+
+const onMainPhotoSelected = (e) => {
+  if (e.target.files.length) {
+    props.savePhoto(e.target.files[0])
+  }
+};
+
   return (
     <div>
       {/* <img src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="" /> */}
       <div className={classes.discriptionBlock}>
-        <img src={props.profile.photos.large} alt="" />
+        <img src={props.profile.photos.large || userImage} alt="" />
+        {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
         <ProfileStatusWithHook status={props.status} updateUserStatus={props.updateUserStatus} />
         <div className={classes.info}>
           <span className={classes.fullname}>{props.profile.fullName}</span>
