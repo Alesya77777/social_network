@@ -3,6 +3,7 @@ import classes from './ProfileInfo.module.css';
 import ProfileStatusWithHook from './ProfileStatusWithHook';
 import userImage from '../../../assets/image/user.jpg';
 import { useState } from 'react';
+import ProfileDataFormReduxForm from './ProfileDataForm';
 
 
 
@@ -21,6 +22,10 @@ const ProfileInfo = (props) => {
     }
   };
 
+  const onSubmit = (formData) => {
+    console.log(formData);
+  };
+
 
   return (
     <div>
@@ -30,7 +35,7 @@ const ProfileInfo = (props) => {
         {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
         <ProfileStatusWithHook status={props.status} updateUserStatus={props.updateUserStatus} />
         { editMode 
-        ? <ProfileDataForm profile={props.profile} /> 
+        ? <ProfileDataFormReduxForm profile={props.profile} onSubmit={onSubmit}/> 
         :<ProfileData profile={props.profile} isOwner={props.isOwner}  goToEditMode={()=>{setEditMode(true)}}/>}
 
 
@@ -60,7 +65,7 @@ const ProfileData = (props) => {
       </div>
       {props.profile.lookingForAJobDescription &&
         <div>
-          <b> Описание работы:</b> {props.profile.aboutMe}
+          <b> Описание работы:</b> {props.profile.lookingForAJobDescription}
         </div>
       }
       <div>
@@ -69,7 +74,6 @@ const ProfileData = (props) => {
       <div>
         <b>Контакты:</b>  {
           Object.keys(props.profile.contacts).map((key) => {
-            debugger;
             return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]} />
           })
         }
@@ -78,9 +82,7 @@ const ProfileData = (props) => {
   )
 }
 
-const ProfileDataForm = (props) => {
-  return <div>Form</div>
-}
+
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
