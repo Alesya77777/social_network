@@ -23,7 +23,9 @@ const ProfileInfo = (props) => {
   };
 
   const onSubmit = (formData) => {
-    console.log(formData);
+    props.saveProfile(formData)
+    .then(()=>{   setEditMode(false);})
+ 
   };
 
 
@@ -35,7 +37,7 @@ const ProfileInfo = (props) => {
         {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
         <ProfileStatusWithHook status={props.status} updateUserStatus={props.updateUserStatus} />
         { editMode 
-        ? <ProfileDataFormReduxForm profile={props.profile} onSubmit={onSubmit}/> 
+        ? <ProfileDataFormReduxForm profile={props.profile} initialValues={props.profile} onSubmit={onSubmit}/> 
         :<ProfileData profile={props.profile} isOwner={props.isOwner}  goToEditMode={()=>{setEditMode(true)}}/>}
 
 

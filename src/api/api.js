@@ -102,5 +102,16 @@ export const profileAPI = {
         .then(response => response.data)
     )
   },
+
+  saveProfile(profile) {
+    return (
+      instance
+        .put(`profile`, profile)
+        .then(response => response.data)
+    )
+  },
+
+
+
 };
 

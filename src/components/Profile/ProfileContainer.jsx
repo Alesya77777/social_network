@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { getUserProfile, requestUserstatus, savePhoto, updateUserStatus, } from "../../Redux/profileReducer";
+import { getUserProfile, requestUserstatus, savePhoto, saveProfile, updateUserStatus, } from "../../Redux/profileReducer";
 import Profile from "./Profile";
 
 export const withRouter = WrappedComponent => props => {
@@ -70,6 +70,7 @@ export default compose(
     requestUserstatus: requestUserstatus,
     updateUserStatus: updateUserStatus,
     savePhoto: savePhoto,
+    saveProfile: saveProfile,
   }),
   withRouter,
   withAuthRedirect

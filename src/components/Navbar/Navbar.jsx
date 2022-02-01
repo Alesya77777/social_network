@@ -11,10 +11,10 @@ const Navbar = (props) => {
 
       const setActive = ({ isActive }) => isActive ? classes.active : classes.item;
 
-      const linksElements = props.links.map((l, index) => {
+      const linksElements = props.links.map((l) => {
 
-        return (<div className={`${classes.item} ${classes.active}`}>
-          <NavLink to={l.path} className={setActive} key={index} id={l.id}>
+        return (<div key={l.id} className={`${classes.item} ${classes.active}` }>
+          <NavLink to={l.path} className={setActive}  id={l.id}>
             {l.name}
           </NavLink>
         </div>)
