@@ -1,8 +1,4 @@
 
-
-
-
-
 .dialog {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -22,4 +18,15 @@
 .dialog a {
   padding-top: 20px;
 
+
+}
+
+
+.item {
+  color: white;
+  text-decoration: none;
+}
+
+.dialog .active  {
+  color: gold;
 }
