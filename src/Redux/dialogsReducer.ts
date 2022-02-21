@@ -1,7 +1,24 @@
+//import { addMessageActionCreator } from './dialogsReducer';
 
 const ADD_MESSAGE = "dialogReducer/ADD-MESSAGE"
 
-const initialState = {
+type DialogsType ={
+  id: number,
+  name: string ,
+  photo: string
+};
+
+type MessageType = {
+  id: number,
+  message: string,
+};
+
+type InitialStateType = {
+  dialogs: Array<DialogsType>,
+  messages: Array<MessageType>
+};
+
+const initialState: InitialStateType = {
   dialogs: [
     { id: 1, name: "Andrew", photo: "https://teleprogramma.pro/wp-content/uploads/2016/03/596a3d04481816330f07e4f97510c28f-1-1024x754.jpg" },
     { id: 2, name: "Dmitry", photo: "https://avochka.ru/img/kartinka/1/lis_zveropolice.jpg" },
@@ -19,7 +36,7 @@ const initialState = {
 
 };
 
-const dialogsReducer = (state = initialState, action) => {
+const dialogsReducer = (state = initialState, action: any ) => {
   switch (action.type) {
     case ADD_MESSAGE:
       return ({
@@ -35,8 +52,12 @@ const dialogsReducer = (state = initialState, action) => {
   };
 };
 
+type AddMessageActionCreatorType ={
+  type: typeof ADD_MESSAGE,
+  newMessageText: string,
+}
 
-export const addMessageActionCreator = (newMessageText) => {
+export const addMessageActionCreator = (newMessageText: string ): AddMessageActionCreatorType => {
   return { type: ADD_MESSAGE, newMessageText }
 };
 
