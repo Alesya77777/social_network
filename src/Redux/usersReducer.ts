@@ -1,5 +1,7 @@
 import { followAPI, usersAPI } from "../api/api";
+import { UsersType } from "../types/types";
 import { updateObjectInArray } from "../units/objectsHelpers";
+
 
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW";
@@ -9,23 +11,15 @@ const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLLOWING_PROGRESS = "TOGGLE_IS_FOLLLOWING_PROGRESS";
 
-type initialStateType = {
-  users: Array<object>,
-  currentPage: number,
-  totalUsersCount: number,
-  sizePage: number,
-  isFetching: boolean,
-  isFollowingProgress: Array<object>
-};
 
-const initialState : initialStateType = {
-  users: [],
-  currentPage: 1,
-  totalUsersCount: 0,
-  sizePage: 10,
-  isFetching: true,
-  isFollowingProgress: [],
 
+const initialState  = {
+  users: [] as Array<UsersType>,
+  currentPage: 1 ,
+  totalUsersCount: 0 ,
+  sizePage: 10 ,
+  isFetching: true ,
+  isFollowingProgress: [] as Array<number>,  // array of users id
 
   // users: [
   //   { id: 1, fullname: "Andrew", location: { country: "Russia", city: "Moscov" }, followed: false, status: "I like football", photo: "https://teleprogramma.pro/wp-content/uploads/2016/03/596a3d04481816330f07e4f97510c28f-1-1024x754.jpg" },
@@ -36,7 +30,9 @@ const initialState : initialStateType = {
   //   { id: 6, fullname: "Viktor", location: { country: "China", city: "Beijing" }, followed: false, status: "I like hockey", photo: "https://img.gazeta.ru/files3/217/10588217/Zootopia-pic905-895x505-73183.jpg" },
   // ],
 };
-const usersReducer = (state = initialState, action :any) => {
+
+type initialStateType = typeof initialState;
+const usersReducer = (state = initialState, action :any): initialStateType => {
   switch (action.type) {
     case FOLLOW:
       return ({
@@ -89,10 +85,10 @@ export const unfollowSuccess = (userId: number):UnfollowSuccessType => {
 
 type SetUsersType = {
   type: typeof SET_USERS,
-  users: object,
+  users: Array<UsersType>,
 };
 
-export const setUsers = (users: Array<object>): SetUsersType => {
+export const setUsers = (users: Array<UsersType>): SetUsersType => {
   return { type: SET_USERS, users }
 };
 
