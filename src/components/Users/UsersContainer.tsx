@@ -4,19 +4,32 @@ import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { getCurrentPage, getIsFetching, getIsFollowingProgress, getSizePage, getTotalUsersCount, getUsers } from "../../Redux/userSelector";
 import { follow, requestUsers, unfollow } from "../../Redux/usersReducer";
+import { UsersType } from "../../types/types";
 import Preloader from "../Common/Preloader/Preloader";
 import Users from "./Users";
 
+type PropsType ={
+  currentPage: number,
+  sizePage: number,
+  pageNumber: number,
+  isFetching: boolean,
+  totalUsersCount:number,
+  isFollowingProgress: Array<number>,
+  users: Array<UsersType>,
+  
+  requestUsers: (currentPage: number, sizePage: number)=> void,
+  follow: () => void,
+  unfollow: () => void
+}
 
-
-class UsersContainer extends React.Component {
+class UsersContainer extends React.Component<PropsType> {
 
   componentDidMount() {
     this.props.requestUsers(this.props.currentPage, this.props.sizePage);
   };
 
 
-  onPageChanged = (pageNumber) => {
+  onPageChanged = (pageNumber:number) => {
     this.props.requestUsers(pageNumber, this.props.sizePage);
   };
 
