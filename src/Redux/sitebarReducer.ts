@@ -1,17 +1,17 @@
 type LinkType = {
   id: number,
   name: string,
-path: string
+  path: string
 };
 
-type FriendType= {
+type FriendType = {
   id: number,
   name: string,
   photo: string
 };
 
 
-type InitialStateType ={
+type InitialStateType = {
   links: Array<LinkType>,
   friends: Array<FriendType>
 };
@@ -31,7 +31,7 @@ const initialState: InitialStateType = {
     { id: 3, name: "Sveta", photo: "https://www.afisha.uz/ui/materials/2016/03/0881639_b.jpg" },
   ]
 };
-const sitebarReducer = (state = initialState, action: any ) => {
+const sitebarReducer = (state = initialState, action: any) => {
   return state;
 };
 
