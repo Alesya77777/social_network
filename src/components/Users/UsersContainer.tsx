@@ -21,14 +21,15 @@ type MapStatePropsType = {
 
 type MapDispatchPropsType = {
   requestUsers: (currentPage: number, sizePage: number) => void,
-  follow: () => void,
-  unfollow: () => void
+  follow: (userId:number) => void,
+  unfollow: (userId:number) => void
 };
 
 
 type OwnPropsType = {
   pageTitle: string
 };
+
 type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType;
 
 class UsersContainer extends React.Component<PropsType> {
@@ -94,7 +95,10 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => {
 // };
 
 
-export default compose(connect(mapStateToProps, {
+export default compose(
+  //<TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultState>
+  connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>
+  (mapStateToProps, {
   follow,
   unfollow,
   requestUsers,

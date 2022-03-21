@@ -13,8 +13,8 @@ type PropsType = {
   portionSize?: number,
   isFollowingProgress: Array<number>,
   users: Array<UsersType>,
-  follow: () => void,
-  unfollow: () => void,
+  follow: (userId:number) => void,
+  unfollow: (userId:number) => void,
 }
 
 
